@@ -36,7 +36,7 @@ window.addEventListener('load', function() {
     // Are Notifications supported in the service worker?
     if (!(reg.showNotification)) {
         // Show a message and activate the button
-        subBtn.textContent = 'Subscribe to Push Messaging';
+        subBtn.textContent = 'Activar Ofertas Flash';
         showMessage(gettext('Showing notifications are not supported in your browser.'));
         return;
     }
@@ -46,7 +46,7 @@ window.addEventListener('load', function() {
     // user changes the permission
     if (Notification.permission === 'denied') {
       // Show a message and activate the button
-      subBtn.textContent = gettext('Subscribe to Push Messaging');
+      subBtn.textContent = gettext('Activar Ofertas Flash');
       subBtn.disabled = false;
       showMessage(gettext('Push notifications are blocked by your browser.'));
       return;
@@ -55,7 +55,7 @@ window.addEventListener('load', function() {
     // Check if push messaging is supported
     if (!('PushManager' in window)) {
       // Show a message and activate the button
-      subBtn.textContent = 'Subscribe to Push Messaging';
+      subBtn.textContent = 'Activar Ofertas Flash';
       subBtn.disabled = false;
       showMessage(gettext('Push notifications are not available in your browser.'));
       return;
@@ -70,7 +70,7 @@ window.addEventListener('load', function() {
               // Check the information is saved successfully into server
               if (response.status === 201) {
                 // Show unsubscribe button instead
-                subBtn.textContent = gettext('Unsubscribe from Push Messaging');
+                subBtn.textContent = gettext('Ofertas Flash Activadas');
                 subBtn.disabled = false;
                 isPushEnabled = true;
                 showMessage(gettext('Successfully subscribed to push notifications.'));
@@ -117,7 +117,7 @@ function subscribe(reg) {
                 // Check the information is saved successfully into server
                 if (response.status === 201) {
                   // Show unsubscribe button instead
-                  subBtn.textContent = gettext('Unsubscribe from Push Messaging');
+                  subBtn.textContent = gettext('Ofertas Flash Activadas');
                   subBtn.disabled = false;
                   isPushEnabled = true;
                   showMessage(gettext('Successfully subscribed to push notifications.'));
@@ -170,7 +170,7 @@ function unsubscribe(reg) {
               subscription.unsubscribe()
                 .then(
                   function(successful) {
-                    subBtn.textContent = gettext('Subscribe to Push Messaging');
+                    subBtn.textContent = gettext('Activar Ofertas Flash');
                     showMessage(gettext('Successfully unsubscribed from push notifications.'));
                     isPushEnabled = false;
                     subBtn.disabled = false;
@@ -178,7 +178,7 @@ function unsubscribe(reg) {
                 )
                 .catch(
                   function(error) {
-                    subBtn.textContent = gettext('Unsubscribe from Push Messaging');
+                    subBtn.textContent = gettext('Ofertas Flash Activadas');
                     showMessage(gettext('Error while unsubscribing from push notifications.'));
                     subBtn.disabled = false;
                   }
